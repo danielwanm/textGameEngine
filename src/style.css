@@ -1,0 +1,229 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    line-height: 1.5;
+}
+h1 {
+    text-align: center;
+    margin-top: 2cm;
+}
+
+#appContainer {
+    text-align: center;
+    /* move background here so popup images can be clipped inside */
+    background-image: url('images/cloudyBackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: relative; /* positioning context for absolutely-positioned images */
+    overflow: hidden; /* prevent images from overflowing the background */
+}
+.title {
+  position: absolute;
+  z-index: 999;
+  left: 25%;
+  margin-top: -150px;
+  max-width: 50%;
+
+}
+.hidden {
+    display: none;
+}
+
+/* Common class for dialog images placed inside #appContainer */
+.person {
+    position: absolute;
+    bottom: 0px;
+    max-width: 30%;
+    height: auto;
+    z-index: 999;
+}
+.daniel {
+    right: 16px;
+    max-width: 400px; /* cap the size on large screens */
+
+}
+.mel {
+    left: 16px;
+    max-width: 300px; /* cap the size on large screens */
+
+}
+.daniel-speech-bubble {
+  position: absolute;
+  top: 30px;
+  left: 610px;
+    max-width: 50%;
+}
+.mel-speech-bubble {
+  position: absolute;
+  top: 100px;
+  right: 670px;
+    max-width: 50%;
+}
+
+/* Layout (optional) */
+.game-text-daniel {
+  position: absolute;
+  top: 200px;
+  left: 780px;
+  max-width: 27%;
+
+}
+.game-text-mel {
+  position: absolute;
+  top: 250px;
+  right: 850px;
+  max-width: 27%;
+
+}
+.game-text-forest {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(720px, 88%);
+  max-width: 100%;
+  text-align: left;
+  background: #f5f1e6;
+  color: #1b1b1b;
+  padding: 18px 22px;
+  border: 4px solid #1b1b1b;
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 4px #ffffff inset,
+    6px 6px 0 #1b1b1b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Game end splash */
+.game-end {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Press Start 2P", monospace;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: #f5f1e6;
+  text-shadow:
+    3px 3px 0 #0b1b33,
+    6px 6px 0 rgba(11, 27, 51, 0.35);
+  padding: 18px 22px;
+  border: 4px solid #0b1b33;
+  background: rgb(215, 40, 183);
+  box-shadow:
+    4px 4px 0 #0b1b33,
+    8px 8px 0 rgba(11, 27, 51, 0.25);
+  z-index: 10;
+}
+
+/* Retro-style text box for 'forest' narration */
+
+
+.start {
+  /* center the group in the container and stack buttons on top of each other */
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+}
+
+/* Retro pixel button */
+.button-group button{
+  font-family: "Press Start 2P", monospace; /* optional font */
+  font-size: 12px;
+  padding: 14px 18px;
+
+  background: #7bb8ff;
+  color: #0b1b33;
+
+  border: 4px solid #0b1b33;             /* chunky outline */
+  border-radius: 0;                       /* pixel look */
+  box-shadow:
+    4px 4px 0 #0b1b33,                    /* hard shadow */
+    8px 8px 0 rgba(11, 27, 51, 0.25);     /* extra depth */
+
+  cursor: pointer;
+
+  /* keep edges crisp if you use pixel-art backgrounds/icons */
+  image-rendering: pixelated;
+
+  /* remove default button styling quirks */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+
+/* Hover: lift up slightly (pixel-y) */
+.button-group button:hover{
+  transform: translate(-2px, -2px);
+  box-shadow:
+    6px 6px 0 #0b1b33,
+    10px 10px 0 rgba(11, 27, 51, 0.25);
+}
+
+/* Active: press down */
+.button-group button:active{
+  transform: translate(2px, 2px);
+  box-shadow:
+    2px 2px 0 #0b1b33,
+    6px 6px 0 rgba(11, 27, 51, 0.25);
+}
+
+/* Keyboard accessibility */
+.button-group button:focus-visible{
+  outline: 4px dashed #0b1b33;
+  outline-offset: 4px;
+}
+
+/* Disabled style (if you ever use it) */
+.button-group button:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+.inputBox{
+  position: absolute;
+  left: 50%;
+  top: 78%;
+  transform: translate(-50%, -50%);
+  width: min(520px, 80%);
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+}
+
+.inputBox input{
+  width: 100%;
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  padding: 12px 14px;
+  background: #f5f1e6;
+  color: #0b1b33;
+  border: 4px solid #0b1b33;
+  border-radius: 0;
+  box-shadow:
+    4px 4px 0 #0b1b33,
+    8px 8px 0 rgba(11, 27, 51, 0.25);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.inputBox input::placeholder{
+  color: rgba(11, 27, 51, 0.6);
+}
+
+.inputBox input:focus-visible{
+  outline: 4px  #0b1b33;
+  outline-offset: 4px;
+}

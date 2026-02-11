@@ -1,0 +1,14 @@
+
+::start START
+:m 
+mt AGGHH i've been 
+-?hello->correct/incorrect
+
+::correct
+:m
+mt CORRRECTT
+--okay->incorect
+
+::incorrect
+:m
+mt incoorect

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First Valentine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <div id="appContainer">
+        <header id="mainHeader">
+            <h1></h1>
+        </header>
+        <main>  
+            <div class="start button-group">
+                <button id="startQuestButton" class="hidden">Start Game</button>
+            </div>
+                <img id="title" src="src/images/title.png" class="hidden title">
+                <div id="foreground">
+                    <img src="src/images/hillsForeground.png">
+                </div>
+
+                <img id="danielNotTalking" src="src/images/danielNotTalking.png" class="hidden person daniel">
+                <img id="danielTalking" src="src/images/danielTalking.png" class="hidden person daniel">
+                <img id="speechBubbleRight" src="src/images/speechBubbleRight.png" class="hidden daniel-speech-bubble">
+
+                <img id="melNotTalking" src="src/images/melNotTalking.png" class="hidden person mel">
+                <img id="melTalking" src="src/images/melTalking.png" class="hidden person mel">
+                <img id="speechBubbleLeft" src="src/images/speechBubbleLeft.png" class="hidden mel-speech-bubble">
+
+            <div class="start game-button button-group" id="gameButton">
+            </div>
+
+            <div class="game-text-daniel" id = "danielGameText">
+            </div>
+            <div class="game-text-mel" id = "melGameText">
+            </div>
+            <div class="game-text-forest hidden" id = "forestGameText">
+            </div>
+            <div class="inputBox" id = "inputBox">
+            </div>
+
+        </main>
+    </div>
+    <script type="module" src="src/main.ts"></script>
+</body>
+</html>
