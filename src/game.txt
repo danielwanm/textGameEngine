@@ -217,7 +217,7 @@ ft And from this day on, you will remember
 ::ending6 
 :m
 :d
-ft the day love defeated the forest... I'll call it
+ft the day love defeated the forest, I'll name it...
 --Continue -> ending7
 
 ::ending7
