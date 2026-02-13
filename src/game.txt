@@ -2,7 +2,7 @@
 ::start START
 
 :m 
-mt How is it already Feburary 14th, ive been trying to escape this place for so long, i' everywhere I go its all the same...
+mt How is it already Feburary 14th, ive been trying to escape this place for so long, everywhere I go its all the same...
 --Continue -> keepGoing
 
 ::keepGoing
