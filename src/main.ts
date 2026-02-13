@@ -9,6 +9,14 @@ startQuestButton.classList.toggle('hidden');
 const gameButtonDiv = document.getElementById('gameButton');
 const inputBoxDiv = document.getElementById('inputBox')!;
 
+const BACKGROUND_URLS = [
+  new URL('./images/cloudyBackground.png', import.meta.url).href,
+  new URL('./images/nightBackground.png', import.meta.url).href,
+  new URL('./images/sunriseBackground.png', import.meta.url).href
+];
+
+const preloadPromise = preloadImages(BACKGROUND_URLS);
+
 // Images
 const danielNotTalking = document.getElementById('danielNotTalking')!;
 const danielTalking = document.getElementById('danielTalking')!;
@@ -27,7 +35,8 @@ const melGameTextBox = document.getElementById('melGameText')!;
 const forestGameTextBox = document.getElementById('forestGameText')!;
 
 // Start game
-startQuestButton.addEventListener('click', () => {
+startQuestButton.addEventListener('click', async () => {
+  await preloadPromise;
   startQuestButton.classList.toggle('hidden');
   mainHeader.classList.add('hidden');
   title.classList.toggle('hidden');
@@ -206,4 +215,14 @@ function renderGameEnd() {
   endEl.className = 'game-end';
   endEl.textContent = 'HAPPY VALENTINES DAY!';
   appContainer.appendChild(endEl);
+}
+
+function preloadImages(urls: string[]): Promise<void> {
+  const promises = urls.map(url => new Promise<void>((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve();
+    img.onerror = () => resolve();
+    img.src = url;
+  }));
+  return Promise.all(promises).then(() => undefined);
 }

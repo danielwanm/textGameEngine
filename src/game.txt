@@ -2,7 +2,7 @@
 ::start START
 
 :m 
-mt AGGHH i've been trying to escape this forest for soo long now, everywhere I go its all the same...
+mt How is it already Feburary 14th, ive been trying to escape this place for so long, i' everywhere I go its all the same...
 --Continue -> keepGoing
 
 ::keepGoing
@@ -100,7 +100,7 @@ ft hmmm okay then thats kinda cute actually, Mel what about you
 :m 
 :d 
 mt 
-ft hmm I suppose that is a valid answer
+ft Aww okay I suppose that is a valid answer
 --Contiune->game2
 
 ::favourite3
@@ -113,7 +113,7 @@ ft Ah same answer as Daniel... maybe you are to be togeather
 ::fail
 :m 
 :d 
-ft you are not worthy of leaving this place im sending you back into the forest!
+ft You are not worthy of leaving this place im sending you back into the forest!
 --Continue->lost
 
 ::game2 
@@ -125,7 +125,7 @@ ft Okay for your next test... a riddle I have: I bring comfort to those next to 
 ::game2Correct
 :m
 :d
-ft Okay thats correct... now a quiz to see how well you really know each other, answer 3 of my questions correctly and you shall pass. my first question is...
+ft Wow you actually got that, well the real challenge starts now... a quiz to see how well you really know each other, answer 3 of my questions correctly and you shall pass. my first question is...
 --continue->game3
 
 ::game2Incorrect
@@ -144,7 +144,7 @@ ft What cuisine did you have on your first meal as a couple
 :m
 :d 
 dt Haha I remember that day we had soo much left over 
-ft okay okay that is correct, next question then
+ft Okay okay that is correct, next question then
 --next->game4
 
 ::game3Incorrect
@@ -162,7 +162,7 @@ ft What was the date of your first kiss (for example "1st july")
 ::game4Correct
 :m
 :d 
-ft wow I guess you really do remember... now for a harder one
+ft Wow I guess you really do remember... now for a harder one
 --im ready->game5
 
 ::game4Incorrect
@@ -174,13 +174,13 @@ ft That is not quite right
 ::game5
 :m
 :d
-ft what was built in Cremorne point
+ft What was built in Cremorne point
 -?lego->game5Correct/game5Incorrect
 
 ::game5Correct 
 :m
 :d 
-ft That... is... correct
+ft That... is... correct...
 --YAYYY->ending1
 
 ::game5Incorrect
@@ -193,7 +193,7 @@ ft That is not quite right
 ::ending1
 :m
 :d
-ft AGGG… this is impossible!
+ft AGG how is this possible
 --Continue -> ending2
 
 ::ending2
@@ -205,25 +205,19 @@ ft No one has ever passed my tests before!
 ::ending3
 :m
 :d
-ft Fine then… I admit it.
---Continue -> ending4
-
-::ending4
-:m
-:d
-ft You are THE FIRST VALENTINES.
+ft Fine then... you two may leave now.
 --Continue -> ending5
 
 ::ending5
 :m
 :d
-ft And from this day on, the world shall celebrate
+ft And from this day on, you will remember
 --Continue -> ending6
 
 ::ending6 
 :m
 :d
-ft the day love defeated the forest…
+ft the day love defeated the forest... I'll call it
 --Continue -> ending7
 
 ::ending7
