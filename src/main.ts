@@ -106,10 +106,7 @@ async function render(currentNode: Node) {
   if (currentNode.changeBackground) {
     const appContainer = document.getElementById('appContainer');
 
-    // Resolve the background path relative to this module (src/) so
-    // the URL points to the actual file location (e.g. src/images/...)
-    const resolved = new URL(currentNode.changeBackground!, import.meta.url).href;
-    appContainer!.style.backgroundImage = `url(${resolved})`;
+    appContainer!.style.backgroundImage = `url(${currentNode.changeBackground})`;
   }
   // Render Daniel
   if (currentNode.danielText) {

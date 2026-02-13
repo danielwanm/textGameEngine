@@ -1,5 +1,9 @@
 import type {Game, Node, Option} from './types';
+
 const GAME_TEXT_DOC = new URL('./game.txt', import.meta.url);
+const CLOUDY_BACKGROUND_URL = new URL('./images/cloudyBackground.png', import.meta.url).href;
+const NIGHT_BACKGROUND_URL = new URL('./images/nightBackground.png', import.meta.url).href;
+const SUNRISE_BACKGROUND_URL = new URL('./images/sunriseBackground.png', import.meta.url).href;
 
 function newNode(): Node {
   return {
@@ -87,9 +91,9 @@ export async function parseGameScript(): Promise<Game> {
       }
     } else if (line.startsWith('cb')) {
       const backgrounds: Record<string, string> = {
-        day: 'images/cloudyBackground.png',
-        night: 'images/nightBackground.png',
-        sunrise: 'images/sunriseBackground.png'
+        day: CLOUDY_BACKGROUND_URL,
+        night: NIGHT_BACKGROUND_URL,
+        sunrise: SUNRISE_BACKGROUND_URL
       };
 
       const background = line.slice(2).trim();
