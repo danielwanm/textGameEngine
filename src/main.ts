@@ -213,7 +213,7 @@ function renderGameEnd() {
 
   const endEl = document.createElement('div');
   endEl.className = 'game-end';
-  endEl.textContent = 'HAPPY VALENTINES DAY!';
+  endEl.textContent = 'THE END';
   appContainer.appendChild(endEl);
 }
 

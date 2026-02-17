@@ -1,236 +1,155 @@
-
 ::start START
 
 :m 
-mt How is it already Feburary 14th, ive been trying to escape this place for so long, everywhere I go its all the same...
+mt How long have I been wandering through this labyrinth? Every corridor looks exactly the same...
 --Continue -> keepGoing
 
 ::keepGoing
 
 :m
-mt Well i'd better keep going then, the sun is falling
+mt I can't stop now. The lights are getting dimmer.
 cb night
---Continue -> daniel
+--Continue -> explorer
 
-::daniel
+::explorer
 :m
-:d
-mt HEYY DANIEL WHAT ARE YOU DOING HEREEEE
---Continue -> danielSeesMel
+:e
+mt HEY! You there!
+--Continue -> explorerSeesYou
 
-::danielSeesMel
+::explorerSeesYou
 :m
-:d
-dt Mel...Is that you?? 
---Continue -> danielSaysHi
+:e
+et Wait… are you another explorer?
+--Continue -> explorerIntro
 
-::danielSaysHi
+::explorerIntro
 :m
-:d
-dt AWWW it is you!! I missed you so much Mel, i've been trying to escape this forest for so long
---Okay lets get out of here together -> gamePlan
---HEY come give me a hug -> danielMelHug
+:e
+et Finally! I've been trying to find the exit for hours.
+--Work together -> planRoute
+--Ignore and walk away -> lost
 
-::danielMelHug
-:m
-:d
-dt Heheheh gnomagnomajomikiii
-mt Aw Daniel I missed you too
---Okay lets focus now -> gamePlan
---KISSSS -> danielMelKiss
-
-::danielMelKiss
-:m
-:d
-dt MWAHHHH
-mt MWAHHHH
---Okay lets focus now -> gamePlan
---more huggy? -> danielMelHug
-
-::gamePlan
+::planRoute
 :m 
-:d
-dt Okay lets go towards the moon I have a good feeling about this, what do you think?
+:e
+et I think the moonlight is showing us the safer paths. What do you think?
 mt 
---Sounds good to me -> lost
---This is so romantic Daniel -> romantic
+--Follow the moonlight -> deeper
+--Head toward the sound of water -> lost
 
-::romantic 
+::deeper 
 :m 
-:d
-dt O... blushes... ur rightttt it is quite romantic 
-mt hehe
---okay lets go now -> lost
+:e
+et The air feels colder here… I think we’re getting closer.
+--Keep going -> strangeSound
 
 
 ::lost 
 :m 
-:d
-dt Man... we have been going for so long... Mel I think we are lost.
-ft grr...
---Wait who was that-> evilForest
+:e
+et I don’t recognize this part of the maze…
+ft A low growl echoes through the corridor...
+--Investigate the sound -> guardian
 
-::evilForest
+::strangeSound
 :m 
-:d
-ft MWAHAHAHA if you wish to escape, you must prove to me your love for each other... for only true soulmates will escape this place
---continue-> evilForest1
+:e
+ft GRRRR…
+--Turn around -> guardian
 
 
-::evilForest1
+::guardian
 :m 
-:d 
-mt Oh no what is this place!! But hey that will be easy for us!
-ft Well don't be so confident yet ... for the first test you must each tell me your favourite memory of the other person 
---Continue-> favourite
+:e
+ft MWAHAHA. To leave this labyrinth, you must prove your worth.
+--Continue -> trial1
 
-::favourite 
+
+::trial1
 :m 
-:d 
-dt I'll go first. Theres so many to choose from ... the moment you became my girlfriend in Barrangaroo, or when we had our first kiss in the botanic gardens, or really just any time you laugh and smile.
-mt aww
-ft hmmm okay then thats kinda cute actually, Mel what about you
---The rose bay date-> favourite2
---Picking his eyebrow hairs-> favourite2
---Our first kiss-> favourite3
---umm IDK -> fail
+:e 
+ft First trial: Name one thing a good explorer must always carry.
+-?map->trial1Correct/trial1Incorrect
 
 
-::favourite2
+::trial1Correct
 :m 
-:d 
-mt 
-ft Aww okay I suppose that is a valid answer
---Contiune->game2
+:e
+ft Acceptable. Preparation is key.
+--Continue -> trial2
 
-::favourite3
+
+::trial1Incorrect
 :m 
-:d 
-mt 
-ft Ah same answer as Daniel... maybe you are to be togeather
---continue->game2
+:e
+ft Incorrect. You are unprepared.
+--Return->lost
 
-::fail
+
+::trial2 
 :m 
-:d 
-ft You are not worthy of leaving this place im sending you back into the forest!
---Continue->lost
+:e 
+ft Second trial: Solve my riddle.
+ft I guide but never speak, I move but have no feet. What am I?
+-?compass->trial2Correct/trial2Incorrect
 
-::game2 
-:m 
-:d 
-ft Okay for your next test... a riddle I have: I bring comfort to those next to me, something ate yet also something heard, what am i? 
--?gnocchi->game2Correct/game2Incorrect
 
-::game2Correct
+::trial2Correct
 :m
-:d
-ft Wow you actually got that, well the real challenge starts now... a quiz to see how well you really know each other, answer 3 of my questions correctly and you shall pass. my first question is...
---continue->game3
+:e
+ft Hmmm. You are wiser than most.
+--Continue->trial3
 
-::game2Incorrect
-:m
-:d
-ft No you fool - your getting sent back into the forest!
---continue->lost
 
-::game3
+::trial2Incorrect
 :m
-:d
-ft What cuisine did you have on your first meal as a couple 
--?indian->game3Correct/game3Incorrect
+:e
+ft Wrong. Try again.
+-?compass->trial2Correct/trial2Incorrect
 
-::game3Correct 
-:m
-:d 
-dt Haha I remember that day we had soo much left over 
-ft Okay okay that is correct, next question then
---next->game4
 
-::game3Incorrect
+::trial3
 :m
-:d
-ft Thats not quite right... try again
--?indian->game3Correct/game3Incorrect
+:e
+ft Final trial: What disappears the moment you say its name?
+-?silence->trial3Correct/trial3Incorrect
 
-::game4
-:d
-:m
-ft What was the date of your first kiss (for example "1st july")
--?1st september->game4Correct/game4Incorrect
 
-::game4Correct
+::trial3Correct 
 :m
-:d 
-ft Wow I guess you really do remember... now for a harder one
---im ready->game5
+:e 
+ft Impressive...
+--Proceed->ending1
 
-::game4Incorrect
-:m
-:d
-ft That is not quite right
---okay->game4
 
-::game5
+::trial3Incorrect
 :m
-:d
-ft What was built in Cremorne point
--?lego->game5Correct/game5Incorrect
-
-::game5Correct 
-:m
-:d 
-ft That... is... correct...
---YAYYY->ending1
-
-::game5Incorrect
-:m
-:d
-ft That is not quite right
---okay->game5
+:e
+ft Not quite.
+--Try again->trial3
 
 
 ::ending1
 :m
-:d
-ft AGG how is this possible
+:e
+ft No one has passed my trials in centuries.
 --Continue -> ending2
+
 
 ::ending2
 :m
-:d
-ft No one has ever passed my tests before!
+:e
+ft Very well. The labyrinth recognizes your skill.
 --Continue -> ending3
+
 
 ::ending3
 :m
-:d
-ft Fine then... you two may leave now.
---Continue -> ending5
-
-::ending5
-:m
-:d
-ft And from this day on, you will remember
---Continue -> ending6
-
-::ending6 
-:m
-:d
-ft the day love defeated the forest, I'll name it...
---Continue -> ending7
-
-::ending7
-:m
-:d
-ft Valentine’s Day.
+:e
+ft You may leave.
 cb sunrise
---Continue -> valentinesReveal
+--Step into the light -> end
 
-::valentinesReveal 
-:m
-:d
-dt Happy Valentine’s day Mel!!
---Happy Valentine’s day Daniel!->end
 
 ::end
