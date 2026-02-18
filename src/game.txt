@@ -13,55 +13,55 @@ cb night
 
 ::explorer
 :m
-:e
+:d
 mt HEY! You there!
 --Continue -> explorerSeesYou
 
 ::explorerSeesYou
 :m
-:e
-et Wait… are you another explorer?
+:d
+dt Wait… are you another explorer?
 --Continue -> explorerIntro
 
 ::explorerIntro
 :m
-:e
-et Finally! I've been trying to find the exit for hours.
+:d
+dt Finally! I've been trying to find the exit for hours.
 --Work together -> planRoute
 --Ignore and walk away -> lost
 
 ::planRoute
 :m 
-:e
-et I think the moonlight is showing us the safer paths. What do you think?
+:d
+dt I think the moonlight is showing us the safer paths. What do you think?
 mt 
 --Follow the moonlight -> deeper
 --Head toward the sound of water -> lost
 
 ::deeper 
 :m 
-:e
-et The air feels colder here… I think we’re getting closer.
+:d
+dt The air feels colder here… I think we’re getting closer.
 --Keep going -> strangeSound
 
 
 ::lost 
 :m 
-:e
-et I don’t recognize this part of the maze…
+:d
+dt I don’t recognize this part of the maze…
 ft A low growl echoes through the corridor...
 --Investigate the sound -> guardian
 
 ::strangeSound
 :m 
-:e
+:d
 ft GRRRR…
 --Turn around -> guardian
 
 
 ::guardian
 :m 
-:e
+:d
 ft MWAHAHA. To leave this labyrinth, you must prove your worth.
 --Continue -> trial1
 
@@ -75,14 +75,14 @@ ft First trial: Name one thing a good explorer must always carry.
 
 ::trial1Correct
 :m 
-:e
+:d
 ft Acceptable. Preparation is key.
 --Continue -> trial2
 
 
 ::trial1Incorrect
 :m 
-:e
+:d
 ft Incorrect. You are unprepared.
 --Return->lost
 
@@ -97,21 +97,21 @@ ft I guide but never speak, I move but have no feet. What am I?
 
 ::trial2Correct
 :m
-:e
+:d
 ft Hmmm. You are wiser than most.
 --Continue->trial3
 
 
 ::trial2Incorrect
 :m
-:e
+:d
 ft Wrong. Try again.
 -?compass->trial2Correct/trial2Incorrect
 
 
 ::trial3
 :m
-:e
+:d
 ft Final trial: What disappears the moment you say its name?
 -?silence->trial3Correct/trial3Incorrect
 
@@ -125,28 +125,28 @@ ft Impressive...
 
 ::trial3Incorrect
 :m
-:e
+:d
 ft Not quite.
 --Try again->trial3
 
 
 ::ending1
 :m
-:e
+:d
 ft No one has passed my trials in centuries.
 --Continue -> ending2
 
 
 ::ending2
 :m
-:e
+:d
 ft Very well. The labyrinth recognizes your skill.
 --Continue -> ending3
 
 
 ::ending3
 :m
-:e
+:d
 ft You may leave.
 cb sunrise
 --Step into the light -> end
