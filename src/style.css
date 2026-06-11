@@ -1,88 +1,88 @@
-
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  line-height: 1.5;
 }
+
 h1 {
-    text-align: center;
-    margin-top: 2cm;
+  text-align: center;
+  margin-top: 2cm;
 }
 
 #appContainer {
-    text-align: center;
-    /* move background here so popup images can be clipped inside */
-    background-image: url('images/cloudyBackground.png');
-    background-color: #a7c7e7;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
-    position: relative; /* positioning context for absolutely-positioned images */
-    overflow: hidden; /* prevent images from overflowing the background */
+  text-align: center;
+  background-image: url('images/cloudyBackground.png');
+  background-color: #a7c7e7;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
+
 .title {
   position: absolute;
   z-index: 999;
   left: 25%;
   margin-top: -150px;
   max-width: 50%;
-
 }
+
 .hidden {
-    display: none;
+  display: none;
 }
 
-/* Common class for dialog images placed inside #appContainer */
-.person {
-    position: absolute;
-    bottom: 0px;
-    max-width: 30%;
-    height: auto;
-    z-index: 999;
-}
-.daniel {
-    right: 16px;
-    max-width: 400px; /* cap the size on large screens */
-
-}
-.mel {
-    left: 16px;
-    max-width: 300px; /* cap the size on large screens */
-
-}
-.daniel-speech-bubble {
+/* Characters: positioned by side */
+.character {
   position: absolute;
+  bottom: 0px;
+  max-width: 30%;
+  height: auto;
+  z-index: 999;
+}
+.character.right {
+  right: 16px;
+  max-width: 400px;
+}
+.character.left {
+  left: 16px;
+  max-width: 300px;
+}
+
+/* Speech bubbles share a single asset per side, anchored relative to the speaker */
+.speech-bubble {
+  position: absolute;
+  max-width: 50%;
+}
+.speech-bubble.right {
   top: 30px;
   left: 610px;
-    max-width: 50%;
 }
-.mel-speech-bubble {
-  position: absolute;
+.speech-bubble.left {
   top: 100px;
   right: 670px;
-    max-width: 50%;
 }
 
-/* Layout (optional) */
-.game-text-daniel {
+/* Dialog text inside the bubble */
+.dialog-text {
   position: absolute;
+  max-width: 27%;
+}
+.dialog-text.right {
   top: 200px;
   left: 780px;
-  max-width: 27%;
-
 }
-.game-text-mel {
-  position: absolute;
+.dialog-text.left {
   top: 250px;
   right: 850px;
-  max-width: 27%;
-
 }
-.game-text-forest {
+
+/* Narrator: a full-width retro text box */
+.narrator-text {
   position: absolute;
   top: 50px;
   left: 50%;
@@ -123,11 +123,7 @@ h1 {
   z-index: 10;
 }
 
-/* Retro-style text box for 'forest' narration */
-
-
 .start {
-  /* center the group in the container and stack buttons on top of each other */
   position: absolute;
   left: 50%;
   top: 85%;
@@ -137,62 +133,49 @@ h1 {
 }
 
 /* Retro pixel button */
-.button-group button{
-  font-family: "Press Start 2P", monospace; /* optional font */
+.button-group button {
+  font-family: "Press Start 2P", monospace;
   font-size: 12px;
   padding: 14px 18px;
-
   background: #7bb8ff;
   color: #0b1b33;
-
-  border: 4px solid #0b1b33;             /* chunky outline */
-  border-radius: 0;                       /* pixel look */
+  border: 4px solid #0b1b33;
+  border-radius: 0;
   box-shadow:
-    4px 4px 0 #0b1b33,                    /* hard shadow */
-    8px 8px 0 rgba(11, 27, 51, 0.25);     /* extra depth */
-
+    4px 4px 0 #0b1b33,
+    8px 8px 0 rgba(11, 27, 51, 0.25);
   cursor: pointer;
-
-  /* keep edges crisp if you use pixel-art backgrounds/icons */
   image-rendering: pixelated;
-
-  /* remove default button styling quirks */
   -webkit-appearance: none;
   appearance: none;
+  margin: 4px;
 }
 
-
-
-/* Hover: lift up slightly (pixel-y) */
-.button-group button:hover{
+.button-group button:hover {
   transform: translate(-2px, -2px);
   box-shadow:
     6px 6px 0 #0b1b33,
     10px 10px 0 rgba(11, 27, 51, 0.25);
 }
 
-/* Active: press down */
-.button-group button:active{
+.button-group button:active {
   transform: translate(2px, 2px);
   box-shadow:
     2px 2px 0 #0b1b33,
     6px 6px 0 rgba(11, 27, 51, 0.25);
 }
 
-/* Keyboard accessibility */
-.button-group button:focus-visible{
+.button-group button:focus-visible {
   outline: 4px dashed #0b1b33;
   outline-offset: 4px;
 }
 
-/* Disabled style (if you ever use it) */
-.button-group button:disabled{
+.button-group button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-
-.inputBox{
+.inputBox {
   position: absolute;
   left: 50%;
   top: 78%;
@@ -203,7 +186,7 @@ h1 {
   z-index: 5;
 }
 
-.inputBox input{
+.inputBox input {
   width: 100%;
   font-family: "Press Start 2P", monospace;
   font-size: 12px;
@@ -220,11 +203,11 @@ h1 {
   appearance: none;
 }
 
-.inputBox input::placeholder{
+.inputBox input::placeholder {
   color: rgba(11, 27, 51, 0.6);
 }
 
-.inputBox input:focus-visible{
-  outline: 4px  #0b1b33;
+.inputBox input:focus-visible {
+  outline: 4px #0b1b33;
   outline-offset: 4px;
 }
